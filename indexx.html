@@ -1,0 +1,741 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link href="BOOTRAP/CSS/css.css" rel="stylesheet" />
+    <link href="FANTWOSAM/css/css/all.css" rel="stylesheet" />
+
+    <script src="BOOTRAP/JS/jquery-3.3.1.slim.min.js"></script>
+    <script src="BOOTRAP/JS/popper.min.js"></script>
+    <script src="BOOTRAP/JS/bootstrap.min.js"></script>
+</head>
+<body>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: radial-gradient( circle farthest-corner at 10% 20%, rgba(151,41,247,1) 0%, rgba(24,22,39,1) 90% );
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            overflow: auto;
+            position: absolute;
+        }
+
+        form-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            padding: 120px 0;
+        }
+
+        .section.cte-area {
+            background-color: transparent;
+        }
+
+        .nav-link {
+            color: white;
+            text-align: center;
+            float: right;
+            font-weight: bold;
+            font-size: 20px;
+            display: flex;
+            flex-direction: row;
+            transition: 0.3s
+        }
+
+            .nav-link:hover {
+                opacity: 0.1;
+            }
+
+        .nav-custom {
+            margin-left: 300px;
+        }
+
+        .nav-custom1 {
+            margin-left: 40px;
+        }
+
+        .nav-custom2 {
+            margin-left: 40px;
+        }
+
+        .square {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background-color: #A0153E;
+            top: 0px;
+            right: 0px;
+        }
+
+        .animated-image {
+            position: absolute;
+            width: 450px;
+            height: 410px;
+            padding-bottom: 100px;
+            transition: transform 0.5s ease-in-out;
+            border-top-left-radius: 40px;
+            border-bottom-right-radius: 10px;
+        }
+
+            .animated-image:hover {
+                transform: scale(1.1);
+            }
+
+        .gift-custom {
+            width: 500px;
+            margin-left: 40px;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.50);
+        }
+
+        .h1-custom {
+            color: goldenrod;
+            font-size: 50px;
+            font-family: fantasy;
+            box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
+        }
+
+        .justified-text {
+            width: 90%;
+            margin: 0 auto;
+            text-align: justify;
+            line-height: 1.6;
+            font-size: 25px;
+            color: white;
+            margin-right: 120px;
+            padding-left: 20px;
+        }
+
+        #fileLink {
+            border: solid;
+            border-width: 1px;
+            padding-right: 10px;
+            padding-left: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        .hover-border-bottom {
+            position: relative;
+            display: inline-block;
+        }
+
+            .hover-border-bottom::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 0;
+                height: 4px;
+                background-color: goldenrod;
+                transition: width 0.3s ease;
+            }
+
+            .hover-border-bottom:hover::after {
+                width: 100%;
+            }
+
+        .pie-chart-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 50px auto;
+            border-radius: 50%;
+            background: conic-gradient( #ff6384 0% 33%, /* Segment 1: 33% */
+            #36a2eb 33% 66%, /* Segment 2: 33% */
+            #ffce56 66% 100% /* Segment 3: 34% */
+            );
+        }
+
+        .label {
+            position: absolute;
+            display: none;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 5px;
+            border-radius: 3px;
+            font-size: 20px;
+        }
+
+        .segment1:hover ~ .label1,
+        .segment2:hover ~ .label2,
+        .segment3:hover ~ .label3 {
+            display: block;
+        }
+
+        .segment1,
+        .segment2,
+        .segment3 {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .segment1 {
+            top: 0;
+            left: 50%;
+        }
+
+        .segment2 {
+            top: 50%;
+            left: 0;
+        }
+
+        .segment3 {
+            top: 50%;
+            left: 50%;
+        }
+
+        .label1 {
+            top: 20px;
+            left: 70px;
+        }
+
+        .label2 {
+            top: 140px;
+            left: 10px;
+        }
+
+        .label3 {
+            top: 140px;
+            left: 180px;
+        }
+
+        .card {
+            box-shadow: 5px 5px 5px rgba(0,0,0,0.10);
+            background-color: #f8f9f9;
+            width: 450PX;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+            .card:hover {
+                border-bottom: 7px solid #fb091f;
+            }
+
+        .navbar-custom {
+            position: fixed;
+            z-index: 1;
+            border-radius: 40px;
+            border: solid;
+            border-color: white;
+            border-width: 1px;
+            box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+        }
+
+            .navbar-custom:hover {
+                border-color: darkorchid;
+            }
+
+        .card-custom {
+            margin-left: 100px;
+            border-radius: 20px;
+            box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+            background-color: transparent;
+            color: white;
+        }
+
+            .card-custom:hover {
+                border-bottom: 7px solid white;
+            }
+
+        #username {
+            width: 90%;
+            height: 50px;
+            border-radius: 20px;
+            background-color: transparent;
+            border-color: transparent;
+            box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+            color: white;
+        }
+
+        #Email {
+            width: 90%;
+            height: 50px;
+            border-radius: 20px;
+            background-color: transparent;
+            border-color: transparent;
+            box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+            color: white;
+        }
+
+        #Phone {
+            width: 90%;
+            height: 50px;
+            border-radius: 20px;
+            background-color: transparent;
+            border-color: transparent;
+            box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+            color: white;
+        }
+
+        #message {
+            width: 90%;
+            height: 50px;
+            border-radius: 20px;
+            background-color: transparent;
+            border-color: transparent;
+            box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+            color: white;
+        }
+
+        .BTN-CUSTOM {
+            background-color: transparent;
+            border-color: transparent;
+            box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+            color: white;
+        }
+
+            .BTN-CUSTOM:hover {
+                background-color: transparent !important;
+                border-color: blueviolet;
+            }
+    </style>
+
+    <form id="form1" runat="server" name="form1">
+        <nav class="navbar navbar-expand-lg navbar-custom" style="background-color:#41026f; position: center; width: 100%;">
+            <a class="navbar-brand" herf="#"><b style="color:white; font-size:30PX;"><img src="images/Graduation%20Cap.png" alt="Graduation%20Cap"></b></a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link nav-custom" href="#hello">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link nav-custom1" href="#about">Aboutus</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link nav-custom2" href="#RESSUME">Ressume</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link nav-custom2" href="#Skills">Skill</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link nav-custom2" href="#tIMELINE">Timeline</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link nav-custom2" href="#PROJECT">project</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link nav-custom2" href="#achivment">Achivments</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link nav-custom2" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </form>
+    <section id="hello" class="section cte-area" style="padding-top: 120px; padding-bottom: 140px;">
+        <div class="row">
+            <div class="col">
+                <h1 style="color:white;margin-left:250px;font-size:50px"><img style="padding-bottom:14px;" src="images/So%20So%20Skin%20Type%204.png" alt="So%20So%20Skin%20Type%204"> HELLO</h1>
+                <h2 class="hover-border-bottom" style="color:white; margin-left: 250px; font-size:50px">I am Chanukya</h2>
+                <h6 class="hover-border-bottom" style="margin-left: 250px; font-size:30px">Software Developer</h6>
+            </div>
+            <div class="col"><img class="animated-image" style="position: absolute; width: 450px; height:410px;padding-bottom:100px; margin-left:10px;" src="images/WhatsApp%20Image%202024-08-22%20at%204.35.11%20PM.jpeg" alt="WhatsApp%20Image%202024-08-22%20at%204"></div>
+        </div>
+    </section>
+    <section id="about" class="section cte-area1" style="padding-top: 120px; padding-bottom: 140px;">
+        <div class="row">
+            <div class="col">
+                <h1 class="hover-border-bottom" style="color:white;margin-left:250px;font-size:50px;padding-top:180px;">ABOUT US</h1>
+            </div>
+            <div class="col">
+                <div class="justified-text">
+                    <p>Welcome! I'm Chanukya TS, an enthusiastic .NET developer with a background in Electrical and Electronics Engineering (EEE). My journey from the world of circuits to coding has been fueled by a passion for technology and a relentless drive to keep pushing the boundaries of what's possible in software development. In addition to my professional work, I’m deeply committed to mastering advanced coding techniques, always eager to learn and grow. When I’m not diving into code, you can find me on the cricket field or lost in the world of music. I believe that the future is built on innovation, and I'm excited to contribute to the ever-evolving digital landscape. Join me on this journey as we explore the digital future together.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="RESSUME" class="section cte-area" style="padding-top: 120px; padding-bottom: 140px;">
+        <div class="row">
+            <div class="col">
+                <center>
+                    <h1 class="hover-border-bottom" style="color: white; margin-left: 5px; font-size: 50px;">RESSUME</h1>
+                </center><br>
+                <div class="row">
+                    <div class="col">
+                        <center>
+                            <center>
+                                <div id="preview" style="display: block;">
+                                    <a id="fileLink" href="images/CHANUKYA%20T.S%20_%20BE%20_%20IT%20_%202023%20(3).pdf" target="_blank" style="color: #dada11; font-size: 20px;">View Ressume</a><br>
+                                </div><br>
+                                <br>
+                                <div id="uploadMessage" class="text-white">
+                                    File preview available.
+                                </div>
+                            </center>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="Skills" class="section cte-area" style="padding-top: 120px; padding-bottom: 140px;">
+        <div class="row">
+            <div class="col">
+                <ul style="color:white;margin-left:250px;" class="skillsitem-skill mr-auto">
+                    <li style="color:white;" class="skillsitem-item active">
+                        <a style="font-size:40px;" class="skill-link" href="https://www.javatpoint.com/sql-tutorial"><img src="images/Microsoft%20SQL%20Server.png" alt="Microsoft%20SQL%20Server"> MY SQL</a>
+                    </li>
+                    <li style="color:white;" class="skillsitem-item active">
+                        <a style="font-size:40px;" class="skill-link" href="https://www.w3schools.com/html/html_intro.asp"><img src="images/Html%205.png" alt="Html%205"> HTML</a>
+                    </li>
+                    <li style="color:white;" class="skillsitem-item active">
+                        <a style="font-size:40px;" class="skill-link" href="https://www.w3schools.com/css/css_intro.asp"><img src="images/CSS3.png" alt="CSS3"> CSS</a>
+                    </li>
+                    <li style="color:white;" class="skillsitem-item active">
+                        <a style="font-size:40px;" class="skill-link" href="https://www.w3schools.com/js/"><img src="images/CSS3.png" alt="CSS3"> JS</a>
+                    </li>
+                    <li style="color:white;" class="skillsitem-item active">
+                        <a style="font-size:40px;" class="skill-link" href="https://www.w3schools.com/asp/default.ASP"><img src="images/C%20Sharp%20Logo.png" alt="C%20Sharp%20Logo"> ASP.NET</a>
+                    </li>
+                    <li style="color:white;" class="skillsitem-item active">
+                        <a style="font-size:40px;" class="skill-link" href="https://getbootstrap.com/"><img src="images/Bootstrap.png" alt="Bootstrap"> BOOTSTRAP</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col">
+                <h1 class="hover-border-bottom" style="color:white; margin-left: 250px; margin-top: 60px; font-size: 50px; font-weight: bold;">SKILLS</h1>
+            </div>
+        </div>
+    </section>
+    <script>
+        // Remove or comment out this function if not used
+
+        function previewFile() {
+            const fileInput = document.getElementById('fileToUpload');
+            const file = fileInput.files[0];
+            const uploadMessage = document.getElementById('uploadMessage');
+            const preview = document.getElementById('preview');
+            const fileLink = document.getElementById('fileLink');
+            const fileImage = document.getElementById('fileImage');
+
+            if (file) {
+                const fileUrl = URL.createObjectURL(file);
+
+                // Display file link
+                fileLink.href = fileUrl;
+                fileLink.textContent = 'View Uploaded File';
+                fileLink.style.display = 'block';
+
+                // Display image if the file is an image
+                if (file.type.startsWith('image/')) {
+                    fileImage.src = fileUrl;
+                    fileImage.style.display = 'block';
+                } else {
+                    fileImage.style.display = 'none';
+                }
+
+                uploadMessage.textContent = 'File preview available.';
+                preview.style.display = 'block';
+            } else {
+                uploadMessage.textContent = 'Please select a file to preview.';
+                preview.style.display = 'none';
+            }
+        }
+    </script>
+    <section id="tIMELINE" class="student-timeline">
+        <center>
+            <h1 class="hover-border-bottom" style="color:white; margin-left:90px">STUDENT TIMELINE</h1>
+        </center><br>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col md-4">
+                    <center>
+                        <div class="pie-chart-container">
+                            <div class="segment1" onmouseover="showLabel('label1')"></div>
+                            <div class="segment2" onmouseover="showLabel('label2')"></div>
+                            <div class="segment3" onmouseover="showLabel('label3')"></div>
+                            <div class="label label1">
+                                ATME COLLEGE OF ENGINEERING<br>
+                                YEAR 2021-2023<br>
+                                8 CGPA
+                            </div>
+                            <div class="label label2">
+                                SAHYADRI POLYTECHNIC<br>
+                                YEAR 2016-2019<br>
+                                51%
+                            </div>
+                            <div class="label label3">
+                                S K R HIGH SCHOOL<br>
+                                YEAR 2016<br>
+                                65%
+                            </div>
+                        </div>
+                    </center>
+                </div>
+                <div style="padding-top:74px;" class="col md-4">
+                    <center>
+                        <div style="background-color: #eed255; width: 25PX; height: 25PX; margin-right: 325PX; margin-top: 80px;" class="square"></div>
+                        <h5 style="width: 50PX; color: white; margin-left: 31px;">SAHYADRI POLTECHNIC</h5>
+                        <div style="background-color:#f071a3; width: 25PX; height: 25PX; margin-right: 105PX; margin-top: 30px;" class="square2">
+                            <h5 style="width: 120PX; padding-bottom: 20px; margin-left: 45px; color: white;">ATME COLLEGE OF ENGINEERING</h5>
+                        </div>
+                        <div style="background-color:#3caee7; width: 25PX; height: 25PX; margin-right: 105PX; margin-top: 70px;" class="square3">
+                            <h5 style="width: 120PX; padding-bottom: 20px; margin-left: 45px; color: white;">S K R HIGH SCHOOL</h5>
+                        </div>
+                    </center>
+                </div>
+                <script>
+                    // Show label based on hover
+                    function showLabel(labelClass) {
+                        // Hide all labels first
+                        var labels = document.querySelectorAll('.label');
+                        labels.forEach(function (label) {
+                            label.style.display = 'none';
+                        });
+
+                        // Show the hovered label
+                        var selectedLabel = document.querySelector('.' + labelClass);
+                        selectedLabel.style.display = 'block';
+                    }
+                </script>
+            </div>
+        </div>
+    </section>
+    <section id="PROJECT">
+        <div class="row">
+            <div class="col">
+                <h1 class="hover-border-bottom" style="color:white;margin-left:200px;">PROJECTS</h1><br>
+                <br>
+                <br>
+                <br>
+                <div class="justified-text">
+                    <h4 style="font-size: 22px; margin-left: 400px;">• E-Library Management using ASP.NET <strong style="color:darkorange;">- 2024</strong></h4>
+                </div><br>
+                <div class="justified-text">
+                    <h4 style="font-size: 22px; margin-left: 500px;"><strong style="color:darkorange;">2024 -</strong> • Simple registration and Login pages using ASP.NET</h4>
+                </div><br>
+                <div class="justified-text">
+                    <h4 style="font-size: 22px; margin-left: 600px;">• Created Dynamic website's using HTML CSS AND JAVA SCRIPT <strong style="color:darkorange;">- 2024</strong></h4>
+                </div><br>
+                <div class="justified-text">
+                    <h4 style="font-size: 22px; margin-left: 700px;"><strong style="color:darkorange;">2023 -</strong>• Develop fabricate portable Refrigerator using Peltier Effect</h4>
+                </div><br>
+                <div class="justified-text">
+                    <h4 style="font-size: 22px; margin-left: 800px;">• Battery Managment system based on IOT <strong style="color:darkorange;">- 2022</strong></h4>
+                </div>
+            </div>
+        </div>&lt;
+    </section>
+    <section id="achivment">
+        <center>
+            <h1 class="hover-border-bottom" style="color:white;">ACADEMIC ACHIVMENTS</h1>
+        </center><br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <img src="images/icons8-medal-48.png" alt="icons8-medal-48">
+                                </center>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <h4>VTU 81th Rank of 8th semester in The ELECTRICAL AND ELECTRONICS Dept, ATME MYSURU</h4>
+                                <h5>YEAR 2023</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <img src="images/icons8-medal-48%20(2).png" alt="icons8-medal-48%20(2)">
+                                </center>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <h4>Our EEE Dept 2th Rank of 8th semester in The ATME MYSURU</h4>
+                                <h5>YEAR 2023</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <center>
+                                    <img src="images/icons8-medal-48%20(3).png" alt="icons8-medal-48%20(3)">
+                                </center>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col">
+                                <h4>Our EEE Dept 4th Rank of 6th and 7th semester in The ATME MYSURU</h4>
+                                <h5>YEAR 2023</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <center>
+            <h1 class="hover-border-bottom" style="color:white;"><img src="images/icons8-contact-48.png" alt="icons8-contact-48"> CONTACT</h1>
+        </center><br>
+        <br>
+        <br>
+        <br>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col md-4">
+                    <div class="card card-custom">
+                        <div class="card-body">
+                            <div class="ROW">
+                                <div class="COL">
+                                    <center>
+                                        <img src="images/icons8-telephone-48.png" alt="icons8-telephone-48">
+                                    </center>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="ROW">
+                                <div class="COL">
+                                    <center>
+                                        <h3>+917829977524</h3>
+                                    </center>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br>
+                    <div class="ROW">
+                        <div class="COL">
+                            <div class="card card-custom">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col">
+                                            <center>
+                                                <img src="images/icons8-gmail-48.png" alt="icons8-gmail-48">
+                                            </center>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col">
+                                            <center>
+                                                <h3>chanukyats@gmil.com</h3>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+                <br>
+                <div style="margin-right:100px;margin-top:100px;" class="col md-8">
+                    <div class="form-group">
+                        <input type="text" id="username" name="username" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="Email" name="Email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="Phone" name="Phone" placeholder="Phone">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="message" name="message" placeholder="Message">
+                    </div><br>
+                    <h4><button style="background-color: blueviolet; color: white; width: 90%;height:50px;border-radius:20px" class="BTN-CUSTOM" onclick="sendmail()">Send Message</button></h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col md-8">
+                    <hr>
+                </div>
+                <div class="col md-2">
+                    <center>
+                        <div style="font-size: 25px;color:black; display: flex; flex-direction:row; align-items: center;margin-right:15px;width:50px;">
+                            <a style="margin-right:25px;" href="https://x.com/search?q=%40S_CHANUKYA9105&amp;src=typed_query"></a><br>
+                            <a href="https://www.instagram.com/chanu_palegar/"></a><br>
+                            <a style="margin-left: 25px;" href="https://www.facebook.com/chanukya.manikya/?locale=tr_TR"></a>
+                        </div>
+                    </center>
+                </div>
+                <div class="col md-2">
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="section cte-area" style="background-color:floralwhite;padding-top:40px;padding-bottom:40px;">
+        <div class="row">
+            <div class="col">
+                <p style="float:left;margin-left:60px;font-size:20px">COLLABORATE WITH C AND TECHNOLOGY PVT LTD. © 2024 All Rights Reserved</p>
+                <p style="float:right;margin-right:60px;font-size:20px">Made with by Chanu AND TECHNOLOGY</p>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+
+
+        (function () {
+            emailjs.init({
+                publicKey: "GkCqHDa_V2D_9ABiw",
+            });
+        })();
+
+    </script>
+    <script>
+
+
+        function sendmail() {
+            var params = {
+                username: document.getElementById("username").value,
+                Email: document.getElementById("Email").value,
+                Phone: document.getElementById("Phone").value,
+                message: document.getElementById("message").value,
+            };
+            const serviceID = "service_qjond84";
+            const templateID = "template_o9hamke"
+
+            emailjs.send(serviceID, templateID, params)
+                .then((res) => {
+
+                    document.getElementById("username").value = "";
+                    document.getElementById("Email").value = "";
+                    document.getElementById("Phone").value = "";
+                    document.getElementById("message").value = "";
+                    console.log(res);
+
+                    alert("your message sent successfully");
+                })
+                .catch((error) => console.log(error));
+        }
+    </script>
+</body>
+</html>
+
